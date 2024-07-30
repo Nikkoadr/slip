@@ -21,9 +21,7 @@
                                 <th>Nama</th>
                                 <th>Gaji</th>
                                 <th>Absensi</th>
-                                <th>Hutang</th>
                                 <th>Koprasi</th>
-                                <th>Tunjangan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,11 +29,10 @@
                             <tr>
                                 <td>{{ $d->nik }}</td>
                                 <td>{{ $d->nama }}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{ $d->jumlah_gaji }}</td>
+                                <td>{{ $d->jumlah_hadir }}</td>
+                                <td>{{ $d->koprasi }}</td>
+        
                             </tr>
                             @endforeach
                         </tbody>

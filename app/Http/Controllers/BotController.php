@@ -41,10 +41,11 @@ class BotController extends Controller
         $employee = \App\Models\Employee::where('nik', $nik)->first();
 
         if ($employee) {
-            $text = "Slip Gaji Karyawan:\n" .
+            $text = "Slip Gaji Guru/Karyawan:\n" .
                     "Nama: {$employee->nama}\n" .
                     "Jumlah Gaji: {$employee->jumlah_gaji}\n" .
-                    "Jumlah Hadir: {$employee->jumlah_hadir} hari";
+                    "Jumlah Hadir: {$employee->jumlah_hadir} hari\n";
+                    "Koprasi: {$employee->koprasi}";
         } else {
             $text = "Guru/Karyawan dengan NIK $nik tidak ditemukan.";
         }
