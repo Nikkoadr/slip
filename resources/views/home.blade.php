@@ -27,9 +27,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($data as $d)
+                                
+                            @endforeach
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td>{{ $d->nik }}</td>
+                                <td>{{ $d->nama }}</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>

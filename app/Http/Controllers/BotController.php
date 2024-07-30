@@ -46,7 +46,7 @@ class BotController extends Controller
                     "Jumlah Gaji: {$employee->jumlah_gaji}\n" .
                     "Jumlah Hadir: {$employee->jumlah_hadir} hari";
         } else {
-            $text = "Karyawan dengan NIK $nik tidak ditemukan.";
+            $text = "Guru/Karyawan dengan NIK $nik tidak ditemukan.";
         }
 
         Telegram::sendMessage([
