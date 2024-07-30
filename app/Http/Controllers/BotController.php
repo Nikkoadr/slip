@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Telegram\Bot\Laravel\Facades\Telegram;
+use Illuminate\Support\Facades\URL;
 
 class BotController extends Controller
 {
@@ -39,13 +40,14 @@ class BotController extends Controller
     {
         // Cari data karyawan berdasarkan NIK
         $employee = \App\Models\Employee::where('nik', $nik)->first();
-
+        $downloadLink = URL::to('employee/' . $employee->id . '/download-slip');
         if ($employee) {
             $text = "Slip Gaji Guru/Karyawan:\n" .
                     "Nama: {$employee->nama}\n" .
                     "Jumlah Gaji: Rp " . number_format($employee->jumlah_gaji, 0, ',', '.') . "\n" .
                     "Jumlah Hadir: {$employee->jumlah_hadir} hari\n" .
-                    "Koprasi: {$employee->koprasi}";
+                    "Koprasi: {$employee->koprasi}" .
+                    "Unduh slip gaji: $downloadLink";
         } else {
             $text = "Guru/Karyawan dengan NIK $nik tidak ditemukan.";
         }
