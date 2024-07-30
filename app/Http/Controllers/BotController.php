@@ -43,8 +43,8 @@ class BotController extends Controller
         if ($employee) {
             $text = "Slip Gaji Guru/Karyawan:\n" .
                     "Nama: {$employee->nama}\n" .
-                    "Jumlah Gaji: {$employee->jumlah_gaji}\n" .
-                    "Jumlah Hadir: {$employee->jumlah_hadir} hari\n";
+                    "Jumlah Gaji: Rp " . number_format($employee->jumlah_gaji, 0, ',', '.') . "\n" .
+                    "Jumlah Hadir: {$employee->jumlah_hadir} hari\n" .
                     "Koprasi: {$employee->koprasi}";
         } else {
             $text = "Guru/Karyawan dengan NIK $nik tidak ditemukan.";
