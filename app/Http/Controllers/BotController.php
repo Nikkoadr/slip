@@ -16,7 +16,7 @@ class BotController extends Controller
             $text = $message->get('text');
             $chatId = $message->getChat()->getId();
 
-            if ($text === '/start') {
+            if ($text === '/hallo') {
                 $this->sendWelcomeMessage($chatId);
             } elseif (str_starts_with($text, '/slip')) {
                 $nik = trim(str_replace('/slip', '', $text));
