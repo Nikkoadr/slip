@@ -28,8 +28,6 @@
                         </thead>
                         <tbody>
                             @foreach($data as $d)
-                                
-                            @endforeach
                             <tr>
                                 <td>{{ $d->nik }}</td>
                                 <td>{{ $d->nama }}</td>
@@ -39,6 +37,7 @@
                                 <td></td>
                                 <td></td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
