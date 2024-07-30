@@ -10,15 +10,18 @@ class BotController extends Controller
     public function webhook()
     {
         $update = Telegram::getWebhookUpdates();
-        $message = $update->getMessage();
-        $text = $message->getText();
-        $chatId = $message->getChat()->getId();
+        // Pastikan untuk memeriksa apakah ada pesan sebelum mengaksesnya
+        if ($update->getMessage()) {
+            $message = $update->getMessage();
+            $text = $message->get('text'); // Menggunakan metode get untuk akses properti
+            $chatId = $message->getChat()->getId();
 
-        if ($text === '/start') {
-            $this->sendWelcomeMessage($chatId);
-        } elseif (str_starts_with($text, '/slip')) {
-            $nik = trim(str_replace('/slip', '', $text));
-            $this->sendSlipGaji($chatId, $nik);
+            if ($text === '/start') {
+                $this->sendWelcomeMessage($chatId);
+            } elseif (str_starts_with($text, '/slip')) {
+                $nik = trim(str_replace('/slip', '', $text));
+                $this->sendSlipGaji($chatId, $nik);
+            }
         }
 
         return response()->json(['status' => 'ok']);
