@@ -17,6 +17,7 @@ return new class extends Migration
         $table->string('nama');
         $table->decimal('jumlah_gaji', 15, 2);
         $table->integer('jumlah_hadir');
+        $table->integer('koprasi');
         $table->timestamps();
     });
     }

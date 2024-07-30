@@ -10,10 +10,9 @@ class BotController extends Controller
     public function webhook()
     {
         $update = Telegram::getWebhookUpdates();
-        // Pastikan untuk memeriksa apakah ada pesan sebelum mengaksesnya
         if ($update->getMessage()) {
             $message = $update->getMessage();
-            $text = $message->get('text'); // Menggunakan metode get untuk akses properti
+            $text = $message->get('text');
             $chatId = $message->getChat()->getId();
 
             if ($text === '/start') {
