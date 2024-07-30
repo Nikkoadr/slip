@@ -20,6 +20,8 @@ class BotController extends Controller
             $nik = trim(str_replace('/slip', '', $text));
             $this->sendSlipGaji($chatId, $nik);
         }
+
+        return response()->json(['status' => 'ok']);
     }
 
     protected function sendWelcomeMessage($chatId)
